@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_layout"
+    android:orientation="vertical"
+    android:padding="5pt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3pt"
+        android:background="@drawable/background_ticket"
+        android:orientation="vertical"
+        android:padding="3pt">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="1pt"
+            android:paddingTop="1pt"
+            android:text="TextView"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:paddingLeft="5pt"
+            android:paddingTop="1pt"
+            android:paddingBottom="1pt"
+            android:text="Hey Tthis is mohammad arham imam, i am creating this app for myself"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="292dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/ivEdit"
+                android:layout_width="50pt"
+                android:layout_height="20pt"
+                android:layout_weight="1"
+                android:padding="1pt"
+                app:srcCompat="@drawable/ic_action_name" />
+
+            <ImageButton
+                android:id="@+id/ivDelete"
+                android:layout_width="50pt"
+                android:layout_height="20pt"
+                android:layout_weight="1"
+                android:padding="1pt"
+                app:srcCompat="@drawable/ic_action_name1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
