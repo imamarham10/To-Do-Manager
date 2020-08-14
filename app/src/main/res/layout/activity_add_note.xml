@@ -37,14 +37,16 @@
         app:layout_constraintTop_toBottomOf="@+id/etTitle"
         app:layout_constraintVertical_bias="0.143" />
 
-    <ImageButton
-        android:id="@+id/buAdd"
+    <Button
+        android:id="@+id/button"
         android:layout_width="50pt"
-        android:layout_height="20pt"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="52dp"
+        android:layout_height="30pt"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/background_ticket"
+        android:onClick="buAdd"
+        android:text="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,8 +34,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:paddingLeft="5pt"
-            android:paddingTop="1pt"
-            android:paddingBottom="1pt"
             android:text="Hey Tthis is mohammad arham imam, i am creating this app for myself"
             android:textAlignment="textStart"
             android:textSize="16sp"
@@ -56,7 +54,6 @@
                 android:layout_width="50pt"
                 android:layout_height="20pt"
                 android:layout_weight="1"
-                android:padding="1pt"
                 app:srcCompat="@drawable/ic_action_name" />
 
             <ImageButton
@@ -64,7 +61,6 @@
                 android:layout_width="50pt"
                 android:layout_height="20pt"
                 android:layout_weight="1"
-                android:padding="1pt"
                 app:srcCompat="@drawable/ic_action_name1" />
 
         </LinearLayout>

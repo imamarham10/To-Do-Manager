@@ -24,32 +24,58 @@ class MainActivity : AppCompatActivity() {
 
 
         // add dummy data
-        listOfNotes.add(Note(1,"Arham","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
+      /*  listOfNotes.add(Note(1,"Arham","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
         listOfNotes.add(Note(2,"Imam","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
         listOfNotes.add(Note(3,"Mohammad ","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
-        listOfNotes.add(Note(4,"saira","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
+        listOfNotes.add(Note(4,"saira","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))*/
+
+
+        //load from database
+        LoadQuery("%")
+    }
+
+    fun LoadQuery(title:String)
+    {
+        var dbManager = DbManager(this)
+        var projections = arrayOf("ID","Title","Description")
+        val selectionArgs = arrayOf(title)
+        val cursor = dbManager.Query(projections,"Title like?",selectionArgs,"Title")
+        listOfNotes.clear()
+        if(cursor.moveToFirst())
+        {
+            do {
+                val ID = cursor.getInt(cursor.getColumnIndex("ID"))
+                val Title = cursor.getString(cursor.getColumnIndex("Title"))
+                val Description = cursor.getString(cursor.getColumnIndex("Description"))
+                listOfNotes.add(Note(ID,Title,Description))
+            }
+                while (cursor.moveToNext())
+        }
 
         var myNotesAdapter = myAdapter(listOfNotes)
         lvNote.adapter = myNotesAdapter
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.add_note,menu)
-        val sv = menu!!.findItem(R.id.app_bar_search).actionView as SearchView
-        val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+        menuInflater.inflate(R.menu.add_note, menu)
+
+        val sv: SearchView = menu.findItem(R.id.app_bar_search).actionView as SearchView
+
+        val sm= getSystemService(Context.SEARCH_SERVICE) as SearchManager
         sv.setSearchableInfo(sm.getSearchableInfo(componentName))
         sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query : String?): Boolean {
-                Toast.makeText(applicationContext,query, Toast.LENGTH_LONG).show()
-                //TODO search data base
+            override fun onQueryTextSubmit(query: String): Boolean {
+                Toast.makeText(applicationContext, query, Toast.LENGTH_LONG).show()
+                LoadQuery("%$query%")
                 return false
             }
-
-            override fun onQueryTextChange(query : String?): Boolean {
-                TODO("Not yet implemented")
+            override fun onQueryTextChange(newText: String): Boolean {
                 return false
             }
         })
+
+
         return super.onCreateOptionsMenu(menu)
     }
 
