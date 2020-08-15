@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/background_layout"
     android:orientation="vertical"
-    android:padding="5pt">
+    android:padding="2pt">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,10 +23,11 @@
             android:paddingLeft="1pt"
             android:paddingTop="1pt"
             android:text="TextView"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/tvDes"

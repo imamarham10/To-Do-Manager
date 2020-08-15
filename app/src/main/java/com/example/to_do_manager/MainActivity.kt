@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         LoadQuery("%")
     }
 
+    override fun onResume() {
+        super.onResume()
+        LoadQuery("%")
+    }
+
     fun LoadQuery(title:String)
     {
         var dbManager = DbManager(this)
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 while (cursor.moveToNext())
         }
 
-        var myNotesAdapter = myAdapter(listOfNotes)
+        var myNotesAdapter = myAdapter(this,listOfNotes)
         lvNote.adapter = myNotesAdapter
     }
 
@@ -94,9 +99,11 @@ class MainActivity : AppCompatActivity() {
 
     inner class  myAdapter:BaseAdapter {
         var listOfNote = ArrayList<Note>()
-        constructor(listOfNote: ArrayList<Note>):super()
+        var context:Context?=null
+        constructor(context: Context,listOfNote: ArrayList<Note>):super()
         {
             this.listOfNote = listOfNote
+            this.context = context
 
         }
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
@@ -104,7 +111,15 @@ class MainActivity : AppCompatActivity() {
             var myNote = listOfNote[p0]
             myView.tvTitle.text = myNote.noteTitle
             myView.tvDes.text = myNote.noteDes
-
+            myView.ivDelete.setOnClickListener(View.OnClickListener {
+                var dbManager = DbManager(this.context!!)
+                val selectionArgs = arrayOf(myNote.noteId.toString())
+                dbManager.Delete("ID=?",selectionArgs)
+                LoadQuery("%")
+            })
+            myView.ivEdit.setOnClickListener(View.OnClickListener {
+                GoToUpdate(myNote)
+            })
             return myView
         }
 
@@ -120,4 +135,14 @@ class MainActivity : AppCompatActivity() {
             return listOfNote.size
         }
     }
+
+    fun GoToUpdate(note:Note)
+    {
+        var intent = Intent(this,add_note::class.java)
+        intent.putExtra("ID",note.noteId)
+        intent.putExtra("Title",note.noteTitle)
+        intent.putExtra("Description",note.noteDes)
+        startActivity(intent)
+    }
+
 }
