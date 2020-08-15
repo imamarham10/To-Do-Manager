@@ -28,16 +28,44 @@ class MainActivity : AppCompatActivity() {
         listOfNotes.add(Note(2,"Imam","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
         listOfNotes.add(Note(3,"Mohammad ","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))
         listOfNotes.add(Note(4,"saira","Hello, I am Mohammad Arham Imam. I am the creator of this application. Hope you like the features and layout of this app. Do give your reviews in the comment section below."))*/
-
-
+        //Toast.makeText(this,"ON CREATE",Toast.LENGTH_LONG).show()
         //load from database
         LoadQuery("%")
     }
 
     override fun onResume() {
+        //Toast.makeText(this,"ON CREATE",Toast.LENGTH_LONG).show()
+
         super.onResume()
         LoadQuery("%")
     }
+
+   /* override fun onStart() {
+        Toast.makeText(this,"ON onStart",Toast.LENGTH_LONG).show()
+
+        super.onStart()
+    }
+
+    override fun onPause() {
+        Toast.makeText(this,"ON onPause",Toast.LENGTH_LONG).show()
+
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        Toast.makeText(this,"ON onDestroy",Toast.LENGTH_LONG).show()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        Toast.makeText(this,"ON onStop",Toast.LENGTH_LONG).show()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        Toast.makeText(this,"ON onRestart",Toast.LENGTH_LONG).show()
+        super.onRestart()
+    }*/
 
     fun LoadQuery(title:String)
     {
