@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
             override fun onQueryTextChange(newText: String): Boolean {
+                LoadQuery("%$newText%")
                 return false
             }
         })

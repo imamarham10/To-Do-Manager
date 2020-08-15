@@ -55,14 +55,14 @@
                 android:layout_width="50pt"
                 android:layout_height="20pt"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_action_name" />
+                app:srcCompat="@drawable/create" />
 
             <ImageButton
                 android:id="@+id/ivDelete"
                 android:layout_width="50pt"
                 android:layout_height="20pt"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_action_name1" />
+                app:srcCompat="@drawable/cdel" />
 
         </LinearLayout>
 

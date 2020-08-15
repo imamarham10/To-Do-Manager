@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.example.to_do_manager"
+        applicationId "com.example.my_notes"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1

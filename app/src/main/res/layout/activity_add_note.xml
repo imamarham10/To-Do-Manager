@@ -33,20 +33,21 @@
         android:textColorHint="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitle"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.238" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="50pt"
-        android:layout_height="30pt"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="88dp"
-        android:background="@drawable/background_ticket"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="68dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/background_addnoteticket"
         android:onClick="buAdd"
-        android:text="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/add_bu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
